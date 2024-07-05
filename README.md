@@ -2,6 +2,14 @@
 
 某漫画に登場した吐瀉物でテ ◯ リスを行うゲーム。
 
+### 作成予定機能
+・ブロック生成時に俺の🤮ボイスを流す  
+・ブロックエリアの上にイラスト追加
+
+https://github.com/tatsurou9003/Geloris/assets/99654281/8d0b115d-6db7-4e80-9aea-39174466b7c1
+
+
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
