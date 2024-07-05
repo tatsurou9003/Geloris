@@ -167,7 +167,7 @@ class _TetrisGameState extends State<TetrisGame> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 140, 108, 4),
+      backgroundColor: Color.fromARGB(255, 186, 155, 53),
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
