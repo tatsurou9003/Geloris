@@ -168,62 +168,66 @@ class _TetrisGameState extends State<TetrisGame> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 140, 108, 4),
-      appBar: AppBar(
-        title: Text('Geloris'),
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Expanded(
-            child: Center(
-              child: Column(
+      body: SafeArea(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const SizedBox(height: 36), // 追加
+            const Text(
+              '🤮',
+              style: TextStyle(fontSize: 52),
+            ),
+            Expanded(
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    for (int i = 0; i < rows; i++)
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          for (int j = 0; j < columns; j++)
+                            Container(
+                              width: 28,
+                              height: 28,
+                              color: getColor(i, j),
+                              margin: EdgeInsets.all(1),
+                            ),
+                        ],
+                      ),
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20.0),
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  for (int i = 0; i < rows; i++)
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        for (int j = 0; j < columns; j++)
-                          Container(
-                            width: 28,
-                            height: 28,
-                            color: getColor(i, j),
-                            margin: EdgeInsets.all(1),
-                          ),
-                      ],
-                    ),
+                  ElevatedButton(
+                    onPressed: () => moveBlockHorizontally(-1),
+                    child: Icon(Icons.arrow_left),
+                  ),
+                  SizedBox(width: 20),
+                  ElevatedButton(
+                    onPressed: () => moveBlockDown(),
+                    child: Icon(Icons.arrow_drop_down),
+                  ),
+                  SizedBox(width: 20),
+                  ElevatedButton(
+                    onPressed: () => moveBlockHorizontally(1),
+                    child: Icon(Icons.arrow_right),
+                  ),
+                  SizedBox(width: 20),
+                  ElevatedButton(
+                    onPressed: () => rotateBlock(),
+                    child: Icon(Icons.rotate_right),
+                  ),
                 ],
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 20.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                  onPressed: () => moveBlockHorizontally(-1),
-                  child: Icon(Icons.arrow_left),
-                ),
-                SizedBox(width: 20),
-                ElevatedButton(
-                  onPressed: () => moveBlockDown(),
-                  child: Icon(Icons.arrow_drop_down),
-                ),
-                SizedBox(width: 20),
-                ElevatedButton(
-                  onPressed: () => moveBlockHorizontally(1),
-                  child: Icon(Icons.arrow_right),
-                ),
-                SizedBox(width: 20),
-                ElevatedButton(
-                  onPressed: () => rotateBlock(),
-                  child: Icon(Icons.rotate_right),
-                ),
-              ],
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
